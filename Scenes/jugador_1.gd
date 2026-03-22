@@ -1,14 +1,12 @@
 extends CharacterBody2D
 
+@export var velocidad : int = 350
 
-@export var velocidad=400;
+func _ready() -> void:
+	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 
-func _physics_process(delta: float):
-	var direccion=0
-	if Input.is_action_just_pressed("Jugador1Arriba"):
-		direccion=-1
-	if Input.is_action_just_pressed("Jugador1Abajo"):
-		direccion=1
-	velocity.y = direccion*velocidad
-	move_and_slide()		
-		
+func _physics_process(delta: float) -> void:
+	var direccion = Input.get_axis("Jugador1Arriba", "Jugador1Abajo")
+	velocity.y = direccion * velocidad
+	velocity.x = 0
+	move_and_slide()
