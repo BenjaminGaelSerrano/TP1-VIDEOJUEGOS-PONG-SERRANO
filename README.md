@@ -23,4 +23,4 @@ Al ingresar a la interfaz de pausa, el sistema ofrece las siguientes funcionalid
     * [cite_start]**Velocidad Aumentada 2**: Configura la pelota a su máxima rapidez x1,5. [cite: 1, 2]
 
 ## 5. Objetivo del Juego
-Anotar mas puntos que el otro.
+Anotar mas puntos que el otro y llegar primero a 20.
