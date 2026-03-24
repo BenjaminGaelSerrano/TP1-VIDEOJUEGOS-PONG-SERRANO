@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://bygkdeayxs8tf"]
 
-[ext_resource type="Script" uid="uid://c8of22epvu4er" path="res://TP1-VIDEOJUEGOS-PONG-SERRANO/Scenes/jugador_1.gd" id="1_h4y2q"]
+[ext_resource type="Script" path="res://TP1-VIDEOJUEGOS-PONG-SERRANO/Scenes/jugador_1.gd" id="1_h4y2q"]
 [ext_resource type="Script" uid="uid://7ohq05d1ytvi" path="res://TP1-VIDEOJUEGOS-PONG-SERRANO/Scenes/pelota.gd" id="1_jvfww"]
+[ext_resource type="Script" uid="uid://d1rlll32to0tf" path="res://TP1-VIDEOJUEGOS-PONG-SERRANO/Scenes/escena_juego.gd" id="1_lixhl"]
 [ext_resource type="Texture2D" uid="uid://c8tl1hf4qu7rj" path="res://TP1-VIDEOJUEGOS-PONG-SERRANO/Skins/SkinPelota.png" id="1_v2x3e"]
 [ext_resource type="Texture2D" uid="uid://cn5fejxvaxh8h" path="res://TP1-VIDEOJUEGOS-PONG-SERRANO/Skins/SkinPaleta.png" id="2_ci6cb"]
-[ext_resource type="Script" uid="uid://bx4nqua5qgc1g" path="res://TP1-VIDEOJUEGOS-PONG-SERRANO/Scenes/jugador_2.gd" id="3_gfbp5"]
+[ext_resource type="Script" path="res://TP1-VIDEOJUEGOS-PONG-SERRANO/Scenes/jugador_2.gd" id="3_gfbp5"]
+[ext_resource type="AudioStream" uid="uid://ca1qyp66wd6qx" path="res://TP1-VIDEOJUEGOS-PONG-SERRANO/Sounds/GritoDeGol.ogg" id="6_tkdrn"]
+[ext_resource type="PackedScene" uid="uid://doyo2gleojtum" path="res://TP1-VIDEOJUEGOS-PONG-SERRANO/Scenes/MenuPausa.tscn" id="7_kyc7d"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_jvfww"]
 size = Vector2(30, 30)
@@ -16,21 +19,27 @@ radius = 15.0
 size = Vector2(100, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ci6cb"]
-size = Vector2(20, 40)
+size = Vector2(20, 50)
 
 [sub_resource type="QuadMesh" id="QuadMesh_gfbp5"]
 size = Vector2(100, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyc7d"]
-size = Vector2(20, 40)
+size = Vector2(20, 50)
 
 [node name="EscenaJuego" type="Node2D" unique_id=1148681858]
+script = ExtResource("1_lixhl")
+
+[node name="MenuPausa" parent="." unique_id=1168763086 instance=ExtResource("7_kyc7d")]
+z_index = 100
 
 [node name="Fondo" type="ColorRect" parent="." unique_id=571186993]
 clip_contents = true
 custom_minimum_size = Vector2(2, 2)
+offset_left = -3.0
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 color = Color(0, 0.011764706, 0.011764706, 1)
 
 [node name="Bordes" type="Node2D" parent="." unique_id=364272691]
@@ -54,8 +63,41 @@ offset_bottom = 646.0
 [node name="VisualBordeDerecho" type="ColorRect" parent="Bordes/Paredes" unique_id=97264758]
 offset_left = 1144.0
 offset_top = -2.0000305
-offset_right = 1152.0
+offset_right = 1151.0
 offset_bottom = 646.0
+
+[node name="LíneaDelMedio" type="ColorRect" parent="." unique_id=476395952]
+offset_left = 572.0
+offset_top = 6.0
+offset_right = 582.0
+offset_bottom = 646.0
+
+[node name="GolesJugador1" type="Label" parent="." unique_id=1335581360]
+custom_minimum_size = Vector2(10, 10)
+offset_left = 288.0
+offset_top = 100.0
+offset_right = 328.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 70
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+structured_text_bidi_override_options = [null]
+
+[node name="GolesJugador2" type="Label" parent="." unique_id=1586827037]
+custom_minimum_size = Vector2(10, 10)
+offset_left = 824.0
+offset_top = 100.0
+offset_right = 864.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 70
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+structured_text_bidi_override_options = [null]
+
+[node name="SonidoGol" type="AudioStreamPlayer2D" parent="." unique_id=1719274654]
+stream = ExtResource("6_tkdrn")
 
 [node name="Pelota" type="CharacterBody2D" parent="." unique_id=2031485403]
 position = Vector2(576, 50)
@@ -71,7 +113,7 @@ shape = SubResource("CircleShape2D_tkdrn")
 
 [node name="Jugador1" type="CharacterBody2D" parent="." unique_id=1517489542]
 z_index = 10
-position = Vector2(175, 321.00003)
+position = Vector2(176, 321)
 motion_mode = 1
 script = ExtResource("1_h4y2q")
 
@@ -87,7 +129,7 @@ shape = SubResource("RectangleShape2D_ci6cb")
 debug_color = Color(18.892157, 18.892157, 18.892157, 1)
 
 [node name="Jugador2" type="CharacterBody2D" parent="." unique_id=450655175]
-position = Vector2(982, 325.00003)
+position = Vector2(976, 325)
 script = ExtResource("3_gfbp5")
 
 [node name="Visual2" type="MeshInstance2D" parent="Jugador2" unique_id=1288259183]

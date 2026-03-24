@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://c4uuagnc5k6ag"]
+
+[ext_resource type="Script" uid="uid://dsyilkwxa2t8o" path="res://TP1-VIDEOJUEGOS-PONG-SERRANO/Scenes/menu_pausa.gd" id="1_ye42i"]
+
+[sub_resource type="FontVariation" id="FontVariation_udk8l"]
+
+[node name="MenuPausa" type="Node2D" unique_id=1168763086]
+script = ExtResource("1_ye42i")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1784795444]
+offset_left = 1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0.17573781, 0.17573781, 0.17573781, 1)
+
+[node name="Pausa" type="Label" parent="." unique_id=794648537]
+offset_left = 376.0
+offset_top = 108.0
+offset_right = 776.0
+offset_bottom = 228.0
+theme_override_fonts/font = SubResource("FontVariation_udk8l")
+theme_override_font_sizes/font_size = 80
+text = "PAUSA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Reanudar" type="Button" parent="." unique_id=1215283022]
+offset_left = 501.0
+offset_top = 267.0
+offset_right = 651.0
+offset_bottom = 317.0
+theme_override_font_sizes/font_size = 30
+text = "Reanudar"
+flat = true
+
+[node name="Velocidad" type="Button" parent="." unique_id=90751273]
+offset_left = 501.0
+offset_top = 347.0
+offset_right = 651.0
+offset_bottom = 397.0
+theme_override_font_sizes/font_size = 30
+text = "Velocidad"
+flat = true
+
+[node name="x1" type="Button" parent="Velocidad" unique_id=513662209]
+layout_mode = 0
+offset_left = -71.0
+offset_top = 69.0
+offset_right = -29.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 30
+text = "x1
+"
+flat = true
+
+[node name="x1_25" type="Button" parent="Velocidad" unique_id=1468557916]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 69.0
+offset_right = 115.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 30
+text = "x1.25
+"
+flat = true
+
+[node name="x1_5" type="Button" parent="Velocidad" unique_id=488189446]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 69.0
+offset_right = 256.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 30
+text = "x1.50
+"
+flat = true
