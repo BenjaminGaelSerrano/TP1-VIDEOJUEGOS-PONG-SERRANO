@@ -24,4 +24,3 @@ Al ingresar a la interfaz de pausa, el sistema ofrece las siguientes funcionalid
 
 ## 5. Objetivo del Juego
 Anotar mas puntos que el otro.
-El propósito consiste en interceptar la pelota con la paleta para evitar que esta sobrepase el límite del campo propio. [cite_start]El sistema de colisiones calcula la trayectoria de salida basándose en el punto de contacto, y cualquier modificación de velocidad realizada desde el menú se aplica sobre el movimiento vigente sin interrumpir la fluidez del encuentro. [cite: 1]
