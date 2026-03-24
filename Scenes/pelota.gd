@@ -19,12 +19,14 @@ func _physics_process(delta):
 	if position.x < 0:
 		golesJ2+=1
 		sonidoGol.play()
+		owner.revisarFinalDelJuego()
 		sumaGoles2.text = str(golesJ2)		
 		position = Vector2(576, 50)
 		velocity = Vector2(velocidad, velocidad * 0.5)
 	if position.x > 1152:
 		golesJ1+=1
 		sonidoGol.play()
+		owner.revisarFinalDelJuego()
 		sumaGoles1.text = str(golesJ1)
 		position = Vector2(576, 50)
 		velocity = Vector2(-velocidad, velocidad * 0.5)

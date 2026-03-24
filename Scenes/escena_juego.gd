@@ -1,6 +1,7 @@
 extends Node2D
 @onready var pausa = $"MenuPausa"
 @onready var pelota = $Pelota
+const puntuacionGanar : int = 20
 func _ready() -> void:
 	pausa.visible=false
 	pausa.reanudar.connect(salirDeLaPausa)
@@ -19,3 +20,10 @@ func cambiarVelocidadEnElJuego(multiplicador):
 	pelota.velocity = pelota.velocity.normalized() * pelota.velocidad
 	pausa.visible = false
 	get_tree().paused = false
+func finalizarPartida():
+	get_tree().paused = true
+	print("La partida ha finalizado. Puntuación alcanzada: 20")
+	pausa.visible = true 
+func revisarFinalDelJuego():
+	if pelota.golesJ1 >= puntuacionGanar or pelota.golesJ2 >= puntuacionGanar : 
+		finalizarPartida()
